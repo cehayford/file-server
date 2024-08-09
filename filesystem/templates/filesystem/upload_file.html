@@ -1,0 +1,23 @@
+{% extends 'filesystem/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static '/filesystem/style.css' %}">
+    <link rel="stylesheet" href="{% static '/filesystem/index.css' %}">
+{% endblock %}
+        
+{% block content %}
+    <p class="custom-button">
+        <a href="{% url 'filesystem:upload_list' %}">
+        Previous Page
+        </a>
+    </p>
+    <div>
+        <h2>Upload Page</h2>
+        <form  method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p }}
+            <button class="button_01" type="submit"> Upload</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,264 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Alegreya Sans';
+    margin: 0;
+    padding: 0;
+    color: #191847;
+}
+
+.heading{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #4C5760;
+    padding: .5rem 2rem;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.heading a{
+    text-decoration: none;
+}
+
+.heading div>p{
+    margin: 0 2rem;
+}
+
+.heading form{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+img, video, audio{
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+.icon{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.dropdown{
+    position: relative;
+}
+
+.dropdown button{
+    width: 5rem;
+    padding: .5rem 1rem;
+    border: none;
+    background-color: white;
+}
+
+.dropdown-options{
+    border: 1px dashed #191847;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown-options a{
+    width: 5rem;
+    padding: .5rem 1rem;
+    background-color: #fff;
+}
+
+
+.SuperAdmin{
+    background-color: #D7CEB2;
+    padding: .5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.SuperAdmin div{
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.SuperAdmin div a{
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0 2rem;
+}
+
+.main{
+    padding: 5rem;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main div{
+    width: 80%;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.main h1{
+    font-weight: 700;
+    font-size: 80px;
+}
+
+.user{
+    color:white;
+}
+
+.main div p{
+    margin: 1rem;
+    padding: .75rem 2rem;
+    border-radius: .5rem;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main div p a{
+    text-decoration: none;
+}
+
+.file_label{
+    width: 60%;
+    display: flex;
+    gap: 10px;
+}
+
+.file_label a{
+    text-decoration: none;
+}
+
+
+.submit-input{
+    padding: 10px 20px;
+    font-size: 12px;
+    width: 20rem;
+    border-top-left-radius: .3rem;
+    border-bottom-left-radius: .3rem;
+    border:none;
+}
+
+.submit-buttom{
+    padding: 10px 20px;
+    font-size: 12px;
+    width: 35%;
+    border:none;
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+    background-color: #D7CEB2;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #D7CEB2;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #D7CEB2;
+}
+
+ .nav-button {
+    position: relative;
+}
+
+.sub-options{
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #D7CEB2;
+  border-radius: .75rem;
+}
+.main-button {
+  padding: 10px 20px;
+  background-color: #D7CEB2;
+  border-radius: .75rem;
+  border: none;
+  cursor: pointer;
+}
+.main-button:hover + .sub-options, .sub-options:hover {
+      display: block;
+  }
+
+.sub-options a{
+    width: 6.05rem;
+    display: block;
+    padding: .8rem;
+    text-decoration: none;
+    color: #333;
+}
+
+
+.custom-button{
+    padding: 10px 20px;
+    background-color: #D7CEB2;
+    border-radius: .75rem;
+    border: none;
+    cursor: pointer;
+}
+
+.size-out{
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.size-out a{
+    text-decoration: none;
+}
+
+
+.preview{
+    padding: 5rem;
+}
+
+.preview>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: .75rem;
+    padding: 5rem 0;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.preview div p{
+    width: 70%;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: .75rem;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.preview div>div{
+    padding: 1rem;
+    width: 70%;
+}
+
+.preview div p label{
+    color: blue;
+}
+
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

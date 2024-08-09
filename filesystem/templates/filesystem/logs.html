@@ -1,0 +1,47 @@
+{% extends 'filesystem/base.html' %}
+{% load static %}
+
+{% block head %}
+    <title>File Logs</title>
+    <link rel="stylesheet" href="{% static '/filesystem/index.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="heading">
+        <p class="custom-button"><a href="{% url 'filesystem:upload_list' %}">Previous Page</a></p>
+    </div>
+    <div class="main">
+        <h1>Log of files</h1>
+        <table>
+            <tr>
+                <th>File Title</th>
+                <th>Number of Downloads</th>
+                <th>Number of Emails sent</th>
+            </tr>
+            {% for file in page_obj %}  
+            <tr>
+                <td>{{file.title}}</td>
+                <td>{{ file.downloads }}</td>
+                <td>{{ file.emails_sent }}</td>
+              </tr>
+        {% endfor %}
+        </table>
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+        
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+        
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+{% endblock %}
