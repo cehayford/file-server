@@ -44,7 +44,10 @@ def signup(request):
             email_from = settings.EMAIL_HOST_USER
             recipient_list = [user.email]
             send_mail( mail_subject, message, email_from, recipient_list )
-            return render(request, 'authentication_app/email_verification.html')
+            try:
+                return render(request, 'authentication_app/email_verification.html')
+            except Exception as e:
+                return render(request, str(e))
     else:
         form = UserSignUp()
     return render(request, 'authentication_app/signup.html', {'form': form})
