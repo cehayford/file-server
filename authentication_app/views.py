@@ -79,7 +79,7 @@ def signin(request):
     next_url = request.GET.get('next')
     if request.method == 'POST':
         form = LoginForm(data=request.POST)
-        if form.is_valid():
+        if request.method=='POST' and form.is_valid():
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=password)
