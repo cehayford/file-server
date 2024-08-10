@@ -80,9 +80,9 @@ def signin(request):
     if request.method == 'POST':
         form = LoginForm(data=request.POST)
         if request.method=='POST' and form.is_valid():
-            username = form.cleaned_data.get('username')
+            email = form.cleaned_data.get('email')
             password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=password)
+            user = authenticate(email=email, password=password)
             if user is not None:
                 login(request, user)
                 if next_url:
@@ -90,7 +90,7 @@ def signin(request):
                 else:
                     return redirect('filesystem:upload_list')
             else:
-                return render(request, 'login.html', {'form': form, 'error': 'Invalid login credentials', 'next': next_url})
+                return render(request, 'authentication_app/login.html', {'form': form, 'error': 'Invalid login credentials', 'next': next_url})
     return render(request, 'authentication_app/login.html', {'form': form, 'next': next_url})
 
 

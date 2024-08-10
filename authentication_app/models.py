@@ -42,7 +42,6 @@ class CustomUserManager(BaseUserManager):
             raise ValueError('An Error Occured Please Try Again')
 
 class CustomUser(AbstractUser):
-    username = models.CharField(max_length = 200)
     email = models.EmailField(unique=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
@@ -54,4 +53,7 @@ class CustomUser(AbstractUser):
 
     REQUIRED_FIELDS = []
     USERNAME_FIELD = 'email'
+
+    def __str__(self) -> str:
+        return self.email
 

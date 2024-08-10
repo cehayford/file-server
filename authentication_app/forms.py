@@ -38,5 +38,5 @@ class passwordChangeForm(forms.ModelForm):
         fields = []
 
 class LoginForm(AuthenticationForm):
+    # email=forms.EmailField(widget=forms.TextInput())
     pass
-
