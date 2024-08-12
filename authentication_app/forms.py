@@ -1,7 +1,7 @@
-from .models import CustomUser
 from django import forms
-from .validator import PasswordValidator
 from django.contrib.auth.forms import AuthenticationForm
+from .validator import PasswordValidator
+from .models import CustomUser
 
 
 class UserSignUp(forms.ModelForm):
@@ -31,12 +31,21 @@ class UserSignUp(forms.ModelForm):
         
 
 class passwordChangeForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'}), label="New Password")
-    confirmPassword = forms.CharField(widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'}), label="New Confirm Password")
+    password = forms.CharField(
+        widget=forms.PasswordInput
+        (
+            attrs={'autocomplete': 'new-password'}
+        ), 
+            label="New Password"
+    )
+    confirmPassword = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={'autocomplete': 'new-password'}
+        ), label="New Confirm Password"
+    )
     class Meta:
         model = CustomUser
         fields = []
 
 class LoginForm(AuthenticationForm):
-    # email=forms.EmailField(widget=forms.TextInput())
     pass

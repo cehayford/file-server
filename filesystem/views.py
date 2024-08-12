@@ -34,7 +34,7 @@ def upload_file(request):
                 return redirect('filesystem:upload_list')
         else:
             form = FileForm()
-        return render(request, 'filesystem/upload_file.html', {'form': form}) 
+        return render(request, 'filesystem/upload_file.html', {'form': form, 'user': user}) 
     else:
         return HttpResponseForbidden('<h1>You are not authorised to view this page</h1>')
 

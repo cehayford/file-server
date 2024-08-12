@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from .forms import UserSignUp, LoginForm, UserSignUp, passwordChangeForm  
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.core.mail import send_mail    
@@ -17,7 +16,7 @@ from .tokens import account_activation_token
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.html import strip_tags
 from .models import CustomUser
-
+from .forms import UserSignUp, LoginForm, UserSignUp, passwordChangeForm 
 
 
 # Create your views here.
@@ -79,7 +78,7 @@ def signin(request):
     next_url = request.GET.get('next')
     if request.method == 'POST':
         form = LoginForm(data=request.POST)
-        if request.method=='POST' and form.is_valid():
+        if form.is_valid():
             email = form.cleaned_data.get('email')
             password = form.cleaned_data.get('password')
             user = authenticate(email=email, password=password)
@@ -88,9 +87,9 @@ def signin(request):
                 if next_url:
                     return render(next_url)
                 else:
-                    return redirect('filesystem:upload_list')
+                    return redirect('filesystem:upload_list', {'user': user})
             else:
-                return render(request, 'authentication_app/login.html', {'form': form, 'error': 'Invalid login credentials', 'next': next_url})
+                return redirect('filesystem:upload_list')
     return render(request, 'authentication_app/login.html', {'form': form, 'next': next_url})
 
 
@@ -125,10 +124,12 @@ def password_reset(request):
                 })
                 email_subject = 'Password reset on ' + current_site.domain
                 email_body = strip_tags(email_body)
-                email = send_mail(email_subject, email_body, from_email=settings.EMAIL_HOST_USER, recipient_list=[user.email])
-                # email.send()
-                return render(request, 'authentication_app/password_reset/password_reset_done.html')
-                
+                try:
+                    email = send_mail(email_subject, email_body, from_email=settings.EMAIL_HOST_USER, recipient_list=[user.email])
+                    # email.send()
+                    return render(request, 'authentication_app/password_reset/password_reset_done.html')
+                except Exception as e:
+                    return render(request, "{error message: address not found. " + str(e) + "}")
             except CustomUser.DoesNotExist:
                 form.add_error(None, 'Email address not found, try again')
     else:
