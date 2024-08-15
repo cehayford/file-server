@@ -14,9 +14,9 @@ import os
 from django.core.paginator import Paginator
 
 
-# @login_required
+@login_required
 def upload_file(request):
-    user= CustomUser.objects.get(pk=request.user.pk)
+    user= CustomUser.objects.get(pk=request.user.id)
     if user.is_superuser:
         if request.method =="POST":
             form = FileForm(request.POST, request.FILES)
@@ -31,12 +31,15 @@ def upload_file(request):
                     file.thumbnail.save(f'{file.title}_thumbnail.jpg', ContentFile(thumbnail))
                 else:
                     form.save()
+                    print('user: ' + file.user)
                 return redirect('filesystem:upload_list')
         else:
             form = FileForm()
-        return render(request, 'filesystem/upload_file.html', {'form': form, 'user': user}) 
+
+        return render(request, 'filesystem/upload_file.html', {'form': form}) 
     else:
         return HttpResponseForbidden('<h1>You are not authorised to view this page</h1>')
+
 
 #delete method for deleting files
 def delete_upload_file(request, pk):

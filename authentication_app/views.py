@@ -81,13 +81,14 @@ def signin(request):
         if form.is_valid():
             email = form.cleaned_data.get('email')
             password = form.cleaned_data.get('password')
+            print('email:', email)
             user = authenticate(email=email, password=password)
             if user is not None:
                 login(request, user)
                 if next_url:
                     return render(next_url)
                 else:
-                    return redirect('filesystem:upload_list', {'user': user})
+                    return redirect('filesystem:upload_list')
             else:
                 return redirect('filesystem:upload_list')
     return render(request, 'authentication_app/login.html', {'form': form, 'next': next_url})
