@@ -63,7 +63,6 @@ def activate(request, uidb64, token):
         user.is_verified = True
         user.is_active = True
         user.save()
-        # Specify the backend when logging in the user
         login(request, user, backend='authentication_app.backends.EmailBackend')
         return redirect('/login/')
         
