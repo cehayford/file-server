@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 from django.core.mail import send_mail    
 from django.contrib.auth.forms import PasswordResetForm
 from django.template.loader import render_to_string
-from django.db.models.query_utils import Q
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
 from django.conf import settings
@@ -81,16 +80,19 @@ def signin(request):
         if form.is_valid():
             email = form.cleaned_data.get('email')
             password = form.cleaned_data.get('password')
-            print('email:', email)
-            user = authenticate(email=email, password=password)
+            user = authenticate(request, email=email, password=password)
+            print(user)
             if user is not None:
                 login(request, user)
+                if user.is_superuser:
+                    return redirect('filesystem:upload_list')
                 if next_url:
-                    return render(next_url)
+                    return redirect(next_url)
                 else:
                     return redirect('filesystem:upload_list')
             else:
-                return redirect('filesystem:upload_list')
+                # If authentication fails, redirect to login page with an error message
+                return render(request, 'authentication_app/login.html', {'form': form, 'next': next_url, 'error': 'Invalid email or password'})
     return render(request, 'authentication_app/login.html', {'form': form, 'next': next_url})
 
 

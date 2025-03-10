@@ -1,59 +1,33 @@
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db import models
-from django.contrib.auth.models import AbstractUser, BaseUserManager
 
 class CustomUserManager(BaseUserManager):
-    def create_user(self, email, password=None, *args, **kwargs):
+    def create_user(self, email, password=None, **extra_fields):
         if not email:
-            raise ValueError('Email is required')
-        
-        if not password:
-            raise ValueError('Password is required')
-        
-        try:
-            user = self.model(
-                email = self.normalize_email(email),
-                *args,
-                **kwargs
-
-            )
-
-            user.set_password(password)
-            user.save()
-
-            return user
-        except:
-            raise ValueError('Please try again')
-        
-        
+            raise ValueError('The Email field must be set')
+        email = self.normalize_email(email)
+        user = self.model(email=email, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
 
     def create_superuser(self, email, password=None, **extra_fields):
-        try:
-            
-            user = self.create_user(
-                email,
-                password=password,
-                is_admin=True,
-                is_superuser=True,
-                is_staff=True,
-                **extra_fields
-            )
-            return user
-        except:
-            raise ValueError('An Error Occured Please Try Again')
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
 
-class CustomUser(AbstractUser):
+        return self.create_user(email, password, **extra_fields)
+
+class CustomUser(AbstractBaseUser):
     email = models.EmailField(unique=True)
     is_active = models.BooleanField(default=True)
-    is_admin = models.BooleanField(default=False)
-    is_verified = models.BooleanField(default=False)
-    groups = None
-    user_permissions = None
+    is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
+
     objects = CustomUserManager()
 
-
-    REQUIRED_FIELDS = []
-    USERNAME_FIELD = 'email'
-
-    def __str__(self) -> str:
+    def __str__(self):
         return self.email
 
