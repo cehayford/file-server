@@ -63,7 +63,8 @@ def activate(request, uidb64, token):
         user.is_verified = True
         user.is_active = True
         user.save()
-        login(request, user)
+        # Specify the backend when logging in the user
+        login(request, user, backend='authentication_app.backends.EmailBackend')
         return redirect('/login/')
         
     else:
@@ -78,20 +79,14 @@ def signin(request):
     if request.method == 'POST':
         form = LoginForm(data=request.POST)
         if form.is_valid():
-            email = form.cleaned_data.get('email')
+            email = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
-            user = authenticate(request, email=email, password=password)
-            print(user)
+            user = authenticate(request, username=email, password=password)  # Ensure username=email
+            print(email, password)
             if user is not None:
                 login(request, user)
-                if user.is_superuser:
-                    return redirect('filesystem:upload_list')
-                if next_url:
-                    return redirect(next_url)
-                else:
-                    return redirect('filesystem:upload_list')
+                return redirect('filesystem:upload_list')
             else:
-                # If authentication fails, redirect to login page with an error message
                 return render(request, 'authentication_app/login.html', {'form': form, 'next': next_url, 'error': 'Invalid email or password'})
     return render(request, 'authentication_app/login.html', {'form': form, 'next': next_url})
 

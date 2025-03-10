@@ -2,42 +2,38 @@
 {% load static %}
 
 {% block head %}
-  <link rel="stylesheet" href="{% static '/filesystem/index.css' %}">
+    <link rel="stylesheet" href="{% static '/filesystem/index.css' %}">
 {% endblock %}
 
 {% block content %}
     <div class="heading">
         <p class="custom-button"><a href="{% url 'filesystem:upload_list' %}">Previous Page</a></p>
     </div>
-<div class="preview margin-top">
-    <div>
-    <h1>{{ file.title }}</h1> 
-    {% if file.file.name|lower|slice:'-3:' == 'jpg' or file.file.name|lower|slice:'-4:' == 'jpeg' or file.file.name|lower|slice:'-3:' == 'png' or file.file.name|lower|slice:'-3:' == 'gif'  %}
-        <img width="500" height="500" src="{{ file.file.url }}" alt="{{ file.title }}">
-    {% elif file.file.name|lower|slice:'-3:' == 'mp4' %}
-        <video width="500" height="500" controls autoplay>
-            <source src="{{ file.file.url }}" type="video/mp4">
-            Your browser does not support the videos.
-        </video>
-    {% elif file.file.name|lower|slice:'-3:' == 'mp3' %}
-        <audio controls autoplay>
-            <source src="{{ file.file.url }}" type="audio/mpeg">
-            Your browser does not support the audios.
-        </audio>
-    {% endif %}
-
-    <p><label>Description of context: </label>{{ file.description }}</p>
-    <div>
-        <button class="custom-button size-out">
-            <a href="{% url 'filesystem:download_file' file_id=file.id %}">
-                 Download {{ file.title }}
-            </a>
-        </button>
-        <button class="custom-button size-out">
-            <a href="{% url 'filesystem:send_file_email' file.id %}">
-                Send Email
-            </a>
-        </button>
+    <div class="preview margin-top">
+        <div>
+            <h1>{{ file.title }}</h1>
+            {% if file.file.name|lower|slice:'-3:' == 'jpg' or file.file.name|lower|slice:'-4:' == 'jpeg' or file.file.name|lower|slice:'-3:' == 'png' or file.file.name|lower|slice:'-3:' == 'gif' %}
+                <img width="500" height="500" src="{{ file.file.url }}" alt="{{ file.title }}">
+            {% elif file.file.name|lower|slice:'-3:' == 'mp4' %}
+                <video width="500" height="500" controls autoplay>
+                    <source src="{{ file.file.url }}" type="video/mp4">
+                    Your browser does not support the videos.
+                </video>
+            {% elif file.file.name|lower|slice:'-3:' == 'mp3' %}
+                <audio controls autoplay>
+                    <source src="{{ file.file.url }}" type="audio/mpeg">
+                    Your browser does not support the audios.
+                </audio>
+            {% endif %}
+            <p><label>Description of context: </label>{{ file.description }}</p>
+            <div>
+                <button class="custom-button size-out">
+                    <a href="{% url 'filesystem:download_file' file_id=file.id %}">Download {{ file.title }}</a>
+                </button>
+                <button class="custom-button size-out">
+                    <a href="{% url 'filesystem:send_file_email' file.id %}">Send Email</a>
+                </button>
+            </div>
+        </div>
     </div>
-</div>
 {% endblock %}

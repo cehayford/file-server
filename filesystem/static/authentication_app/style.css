@@ -1,0 +1,133 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Alegreya Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #191847;
+}
+
+body {
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.header, .footer {
+    width: 100%;
+    background-color: #4C5760;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.header a, .footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.main-content {
+    width: 100%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, textarea, select, button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+button {
+    background-color: #0047FF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #003bb5;
+}
+
+.errorlist {
+    color: red;
+    list-style-type: none;
+}
+
+.custom-button {
+    padding: 10px 20px;
+    background-color: #D7CEB2;
+    border-radius: .75rem;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.custom-button a {
+    text-decoration: none;
+    color: #191847;
+}
+
+.custom-button:hover {
+    background-color: #c5b89b;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #4C5760;
+    padding: .5rem 2rem;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.heading a {
+    text-decoration: none;
+}
+
+.heading div > p {
+    margin: 0 2rem;
+}
+
+.heading form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand-icon {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    margin-right: 10px;
+}

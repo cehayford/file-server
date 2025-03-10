@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block head %}
-    <title>File Logs</title>
     <link rel="stylesheet" href="{% static '/filesystem/index.css' %}">
 {% endblock %}
 
@@ -18,13 +17,13 @@
                 <th>Number of Downloads</th>
                 <th>Number of Emails sent</th>
             </tr>
-            {% for file in page_obj %}  
+            {% for file in page_obj %}
             <tr>
-                <td>{{file.title}}</td>
+                <td>{{ file.title }}</td>
                 <td>{{ file.downloads }}</td>
                 <td>{{ file.emails_sent }}</td>
-              </tr>
-        {% endfor %}
+            </tr>
+            {% endfor %}
         </table>
         <div class="pagination">
             <span class="step-links">
@@ -32,11 +31,11 @@
                     <a href="?page=1">&laquo; first</a>
                     <a href="?page={{ page_obj.previous_page_number }}">previous</a>
                 {% endif %}
-        
+
                 <span class="current">
                     Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
                 </span>
-        
+
                 {% if page_obj.has_next %}
                     <a href="?page={{ page_obj.next_page_number }}">next</a>
                     <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>

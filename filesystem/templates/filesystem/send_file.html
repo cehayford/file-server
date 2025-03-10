@@ -2,21 +2,19 @@
 {% load static %}
 
 {% block head %}
-    <link rel="stylesheet" href="{% static '/filesystem/style.css' %}">
     <link rel="stylesheet" href="{% static '/filesystem/index.css' %}">
 {% endblock %}
-        
+
 {% block content %}
     <p class="custom-button">
-        <a href="{% url 'filesystem:upload_list' %}">
-        Previous Page
-        </a>
+        <a href="{% url 'filesystem:upload_list' %}">Previous Page</a>
     </p>
-    <div>
-    <h2>Send File</h2>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input class="custom-button" type="submit" value="Send">
-    </form>
+    <div class="main">
+        <h2>Send File</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="custom-button" type="submit" value="Send">
+        </form>
+    </div>
 {% endblock %}

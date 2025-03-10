@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head %}
-  <link rel="stylesheet" href="{% static '/filesystem/index.css' %}">
+    <link rel="stylesheet" href="{% static '/filesystem/index.css' %}">
 {% endblock %}
 {% block content %}
     <div class="heading">
@@ -10,19 +10,19 @@
         <form>
             <input class="submit-input" type="text" placeholder="Make your search here..." name="q">
             <input class="submit-buttom" type="submit" value="Search">
-        </form>   
+        </form>
         <p class="custom-button"><a href="{% url 'authentication_app:logout' %}">logout</a></p>
     </div>
     <div class="main">
         <div>
-            {% if files %} 
+            {% if files %}
                 {% for file in files %}
-                    <p>
+                    <div class="file-item">
                         <a href="{{ file.get_absolute_url }}">{{ file.title }}</a>
-                    </p>
-                {% endfor %} 
+                    </div>
+                {% endfor %}
             {% else %}
-                    <p>No results found.</p>
+                <p>No results found.</p>
             {% endif %}
         </div>
     </div>
