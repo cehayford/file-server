@@ -9,9 +9,9 @@
     <div class="header">
         <p class="custom-button"><a href="{% url 'filesystem:upload_list' %}">Previous Page</a></p>
     </div>
-    <h4>{{ file.title }}</h4>
     <div class="preview">
         <div>
+            <h3>{{ file.title }}</h3>
             {% if file.file.name|lower|slice:'-3:' == 'jpg' or file.file.name|lower|slice:'-4:' == 'jpeg' or file.file.name|lower|slice:'-3:' == 'png' or file.file.name|lower|slice:'-3:' == 'gif' %}
                 <img width="500" height="500" src="{{ file.file.url }}" alt="{{ file.title }}">
             {% elif file.file.name|lower|slice:'-3:' == 'mp4' %}
