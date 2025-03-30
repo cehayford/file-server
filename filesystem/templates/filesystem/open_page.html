@@ -1,0 +1,32 @@
+{% extends 'filesystem/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static '/filesystem/index.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="header">
+        <p class="custom-button"><a href="{% url 'filesystem:upload_list' %}">Previous Page</a></p>
+    </div>
+    <div class="preview margin-top">
+        <div>
+            <h1>{{ file.title }}</h1>
+            {% if file.thumbnail %}
+                <img class="" alt="{{ file.title }}" src="{{ file.thumbnail.url }}"/>
+            {% endif %}
+            <p><label>Description of context: </label>{{ file.description }}</p>
+            <div>
+                <button class="custom-button size-out">
+                    <a href="{% url 'filesystem:preview' file.id %}" preview>Preview</a>
+                </button>
+                <button class="custom-button size-out">
+                    <a href="{% url 'filesystem:download_file' file.id %}" download>Download</a>
+                </button>
+                <button class="custom-button size-out">
+                    <a href="{% url 'filesystem:send_file_email' file.id %}">Send Email</a>
+                </button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static '/filesystem/index.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="main">
+        <h1>Download Files</h1>
+        <div>
+            {% for file in files %}
+                <div class="file-item">
+                    <a href="{% url 'filesystem:download_file' file_id=file.id %}">Download {{ file.title }}</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
