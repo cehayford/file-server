@@ -3,11 +3,12 @@
     font-family: 'Alegreya Sans', sans-serif;
     margin: 0;
     padding: 0;
-    color: #191847;
+    color: #205781;
 }
 
 body {
-    background-color: #f50000;
+    background-color: #F6F8D5;
+    display: flex;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,14 +25,14 @@ body {
 
 .header, .footer {
     width: 100%;
-    background-color: #4C5760;
-    color: white;
+    background-color: #205781;
+    color: #FFFFFF;
     padding: 10px 0;
     text-align: center;
 }
 
 .header a, .footer a {
-    color: white;
+    color: #FFFFFF;
     text-decoration: none;
     margin: 0 10px;
 }
@@ -39,7 +40,7 @@ body {
 .main-content {
     width: 100%;
     padding: 20px;
-    background-color: white;
+    background-color: #FFFFFF;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -57,20 +58,20 @@ input, textarea, select, button {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #98D2C0;
     font-size: 16px;
 }
 
 button {
-    background-color: #0047FF;
-    color: white;
+    background-color: #4F959D;
+    color: #FFFFFF;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #003bb5;
+    background-color: #205781;
 }
 
 .errorlist {
@@ -80,7 +81,7 @@ button:hover {
 
 .custom-button {
     padding: 10px 20px;
-    background-color: #D7CEB2;
+    background-color: #98D2C0;
     border-radius: .75rem;
     border: none;
     cursor: pointer;
@@ -91,24 +92,24 @@ button:hover {
 
 .custom-button a {
     text-decoration: none;
-    color: #191847;
+    color: #205781;
 }
 
 .custom-button:hover {
-    background-color: #c5b89b;
+    background-color: #4F959D;
 }
 
-.heading {
+header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #4C5760;
+    background-color: #205781;
     padding: .5rem 2rem;
     font-weight: bold;
     font-size: 12px;
 }
 
-.heading a {
+header a {
     text-decoration: none;
 }
 

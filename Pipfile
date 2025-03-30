@@ -10,6 +10,7 @@ django-utils-six = "*"
 pymupdf = "*"
 pillow = "*"
 six = "*"
+django-browser-reload = "*"
 
 [dev-packages]
 

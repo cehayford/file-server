@@ -64,7 +64,7 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.save()
         login(request, user, backend='authentication_app.backends.EmailBackend')
-        return redirect('')
+        return redirect('/')
         
     else:
         return render(request, 'authentication_app/activation_404.html')
@@ -94,7 +94,7 @@ def signin(request):
 
 def signout(request):
     logout(request)
-    return redirect('')
+    return redirect('/')
      
 
 
