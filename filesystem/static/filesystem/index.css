@@ -3,11 +3,11 @@
     font-family: 'Alegreya Sans', sans-serif;
     margin: 0;
     padding: 0;
-    color: #191847;
+    color: #205781;
 }
 
 body {
-    background-color: #f5f5f5;
+    background-color: #F6F8D5;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,15 +23,20 @@ body {
 }
 
 .header, .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #4F959D;
+    font-weight: bold;
+    font-size: 12px;
     width: 100%;
-    background-color: #4C5760;
-    color: white;
+    color: #FFFFFF;
     padding: 10px 0;
     text-align: center;
 }
 
 .header a, .footer a {
-    color: white;
+    color: #FFFFFF;
     text-decoration: none;
     margin: 0 10px;
 }
@@ -39,7 +44,7 @@ body {
 .main-content {
     width: 100%;
     padding: 20px;
-    background-color: white;
+    background-color: #FFFFFF;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -57,20 +62,20 @@ input, textarea, select, button {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #98D2C0;
     font-size: 16px;
 }
 
 button {
-    background-color: #0047FF;
-    color: white;
+    background-color: #205781;
+    color: #FFFFFF;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #003bb5;
+    background-color: #4F959D;
 }
 
 .errorlist {
@@ -88,15 +93,15 @@ button:hover {
 .pagination a {
     margin: 0 5px;
     padding: 10px 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #98D2C0;
     border-radius: 5px;
     text-decoration: none;
-    color: #0047FF;
+    color: #205781;
 }
 
 .pagination a:hover {
-    background-color: #0047FF;
-    color: white;
+    background-color: #205781;
+    color: #FFFFFF;
 }
 
 .table {
@@ -106,17 +111,17 @@ button:hover {
 }
 
 .table th, .table td {
-    border: 1px solid #ccc;
+    border: 1px solid #98D2C0;
     padding: 10px;
     text-align: left;
 }
 
 .table th {
-    background-color: #f5f5f5;
+    background-color: #F6F8D5;
 }
 
 .table tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #F6F8D5;
 }
 
 .icon {
@@ -126,7 +131,7 @@ button:hover {
 
 .custom-button {
     padding: 10px 20px;
-    background-color: #D7CEB2;
+    background-color: #205781;
     border-radius: .75rem;
     border: none;
     cursor: pointer;
@@ -137,11 +142,11 @@ button:hover {
 
 .custom-button a {
     text-decoration: none;
-    color: #191847;
+    color: #FFFFFF;
 }
 
 .custom-button:hover {
-    background-color: #c5b89b;
+    background-color: #4F959D;
 }
 
 .preview img, .preview video, .preview audio {
@@ -153,7 +158,7 @@ button:hover {
 .preview .description {
     margin-top: 20px;
     padding: 10px;
-    background-color: #f5f5f5;
+    background-color: #F6F8D5;
     border-radius: 10px;
 }
 
@@ -161,31 +166,6 @@ button:hover {
     margin-top: 20px;
     display: flex;
     gap: 10px;
-}
-
-.heading {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #4C5760;
-    padding: .5rem 2rem;
-    font-weight: bold;
-    font-size: 12px;
-}
-
-.heading a {
-    text-decoration: none;
-}
-
-.heading div > p {
-    margin: 0 2rem;
-}
-
-.heading form {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .dropdown {
@@ -196,11 +176,11 @@ button:hover {
     width: 5rem;
     padding: .5rem 1rem;
     border: none;
-    background-color: white;
+    background-color: #FFFFFF;
 }
 
 .dropdown-options {
-    border: 1px dashed #191847;
+    border: 0 dashed #205781;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -211,11 +191,11 @@ button:hover {
 .dropdown-options a {
     width: 5rem;
     padding: .5rem 1rem;
-    background-color: #fff;
+    background-color: #FFFFFF;
 }
 
 .SuperAdmin {
-    background-color: #D7CEB2;
+    background-color: #98D2C0;
     padding: .5rem 2rem;
     display: flex;
     flex-direction: column;
@@ -259,7 +239,7 @@ button:hover {
 }
 
 .user {
-    color: white;
+    color: #FFFFFF;
 }
 
 .main div p {
@@ -302,7 +282,7 @@ button:hover {
     border: none;
     border-top-right-radius: .3rem;
     border-bottom-right-radius: .3rem;
-    background-color: #D7CEB2;
+    background-color: #98D2C0;
 }
 
 table {
@@ -311,13 +291,13 @@ table {
 }
 
 td, th {
-    border: 1px solid #D7CEB2;
+    border: 1px solid #98D2C0;
     text-align: left;
     padding: 8px;
 }
 
 tr:nth-child(even) {
-    background-color: #D7CEB2;
+    background-color: #98D2C0;
 }
 
 .nav-button {
@@ -329,13 +309,13 @@ tr:nth-child(even) {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #D7CEB2;
+    background-color: #98D2C0;
     border-radius: .75rem;
 }
 
 .main-button {
     padding: 10px 20px;
-    background-color: #D7CEB2;
+    background-color: #98D2C0;
     border-radius: .75rem;
     border: none;
     cursor: pointer;
@@ -350,7 +330,7 @@ tr:nth-child(even) {
     display: block;
     padding: .8rem;
     text-decoration: none;
-    color: #333;
+    color: #205781;
 }
 
 .size-out {
@@ -405,9 +385,9 @@ tr:nth-child(even) {
     justify-content: space-between;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #98D2C0;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: #F6F8D5;
 }
 
 .file-item .file_label {
