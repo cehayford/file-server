@@ -8,8 +8,10 @@
     <div class="header">
         <p class="custom-button"><a href="{% url 'filesystem:upload_list' %}">Previous Page</a></p>
         <form>
-            <input class="submit-input" type="text" placeholder="Make your search here..." name="q">
-            <input class="submit-buttom" type="submit" value="Search">
+            <div class="search-bar">
+                <input class="submit-input" type="text" placeholder="Make your search here..." name="q">
+                <input class="submit-buttom" type="submit" value="Search">
+            </div>
         </form>
         <p class="custom-button"><a href="{% url 'authentication_app:logout' %}">logout</a></p>
     </div>
