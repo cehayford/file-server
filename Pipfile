@@ -12,6 +12,7 @@ pillow = "*"
 six = "*"
 django-browser-reload = "*"
 whitenoise = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
