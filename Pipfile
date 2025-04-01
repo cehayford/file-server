@@ -4,6 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+whitenoise = "*"
 django = "*"
 django-cors-headers = "*"
 django-utils-six = "*"
@@ -11,7 +12,6 @@ pymupdf = "*"
 pillow = "*"
 six = "*"
 django-browser-reload = "*"
-whitenoise = "*"
 psycopg2-binary = "*"
 
 [dev-packages]
