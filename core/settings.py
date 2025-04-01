@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'whitenoise.runserver_nostatic',
 
     'django_browser_reload',
     'authentication_app', 
@@ -52,7 +51,6 @@ AUTHENTICATION_BACKENDS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -62,11 +60,6 @@ MIDDLEWARE = [
     'django_browser_reload.middleware.BrowserReloadMiddleware'
 ]
 
-STORAGES = {
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
 
 ROOT_URLCONF = 'core.urls'
 
@@ -102,10 +95,10 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'file_server',
-        'USER': 'postgres',
-        'PASSWORD': 'DLy35iTV2MLMsuEl',
-        'HOST': 'db.bnrmqexjkiawwbjhqcgv.supabase.co',
+        'NAME': 'file_server', 
+        'USER': 'postgres', 
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
@@ -165,4 +158,4 @@ EMAIL_USE_SSL = True
 # EMAIL_PORT = 587
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'sngodson@gmail.com'
-EMAIL_HOST_PASSWORD = 'sigvskzfalbmmucx'
+EMAIL_HOST_PASSWORD = 'tcqcnrvninscmoxw'
